@@ -1,213 +1,393 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ro">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>All Courses - eLearning CUTM</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>eLearning CUTM</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    .main-content {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 30px;
+      padding: 20px;
+    }
+
+    .courses-list {
+      width: 75%;
+      margin-right: 20px;
+    }
+
+    .sidebar {
+      width: 25%;
+      padding-left: 20px;
+    }
+
+    .filters {
+      background-color: #f5f5f5;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .filters h3 {
+      font-size: 20px;
+      color: #333;
+    }
+
+    .filter-item {
+      margin-bottom: 20px;
+    }
+
+    .filter-item h4 {
+      margin-bottom: 10px;
+    }
+
+    .filter-item ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    .filter-item li {
+      margin-bottom: 10px;
+    }
+
+    .filter-item label {
+      margin-left: 5px;
+    }
+
+    .footer {
+      padding: 40px 0;
+      background-color: #333;
+      color: white;
+    }
+
+    .footer-social {
+      margin-top: 20px;
+    }
+
+    .footer-social a {
+      margin: 0 10px;
+      color: white;
+      font-size: 20px;
+    }
+
+    /* Pagination styles */
+    .pagination {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 30px;
+    }
+
+    .pagination-btn {
+      padding: 10px 15px;
+      border: 1px solid #fe7424;
+      border-radius: 50%;
+      font-size: 16px;
+      color: #555;
+      cursor: pointer;
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    .pagination-btn:hover {
+      background-color: #fe7424;
+      color: white;
+    }
+
+    .pagination-btn.active {
+      background-color: #fe7424;
+      color: white;
+    }
+
+    .pagination-btn:focus {
+      outline: none;
+    }
+
+    .pagination-btn:first-child,
+    .pagination-btn:last-child {
+      font-size: 18px;
+      padding: 10px 15px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header -->
-    <header>
+  <nav class="navbar">
+    <div class="logo">
+      <i class="fa-solid fa-book-open" style="color: #fe7424;"></i>
+      <span>eLearning CUTM</span>
+    </div>
+    <ul class="menu">
+      <li><a href="file:///C:/Users/user/Desktop/practica/index.html">Home</a></li>
+      <li><a href="#">Courses</a></li>
+      <li><a href="#">Blog</a></li>
+      <li><a href="#">Login</a></li>
+    </ul>
+    <div class="search">
+      <i class="fa-solid fa-magnifying-glass" style="color: #fe7424;"></i>
+      <input type="text" id="searchInput" placeholder="Search..." />
+    </div>
+  </nav>
+
+  <div class="breadcrumb">
+    <a href="#">Homepage</a> > <a href="#">Courses</a> > Choose your favourite course
+  </div>
+
+  <div class="all-courses-header">
+    <h1 class="section-title">All Courses</h1>
+    <div class="advanced-search">
+      <input type="text" placeholder="Search for courses..." id="advancedSearchInput" />
+      <button id="advancedSearchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
+    </div>
+  </div>
+
+  <div class="main-content">
+    <div class="courses-list">
+      <!-- Course Card 1 -->
+      <div class="course-card">
+        <div class="image-container">
+          <img src="https://i.ytimg.com/vi/ujaCbzLwuB8/maxresdefault.jpg" alt="Curs fotografie">
+          <span class="label-on-image">Photography</span>
+        </div>
+        <div class="course-content">
+          <p class="subtitle">Online Masterclass</p>
+          <h3>Secrets of Portrait Photography</h3>
+          <div class="course-meta-icons">
+            <span><i class="fa-solid fa-clock" style="color: #fe8d4d;"></i> 6 weeks</span>
+            <span><i class="fa-solid fa-share-from-square" style="color: #fe8d4d;"></i> 120 enrolled</span>
+            <span><i class="fa-solid fa-signal" style="color: #fe8d4d;"></i> Intermediate</span>
+            <span><i class="fa-solid fa-ticket" style="color: #fe8d4d;"></i> 24 Lessons</span>
+          </div>
+          <div class="course-footer">
+            <span class="price"><s>$30</s> <span class="free">Free</span></span>
+            <a href="#" class="view-more">View More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 2 -->
+      <div class="course-card">
+        <div class="image-container">
+          <img src="https://aaft.com/blog/wp-content/uploads/2021/05/183-significance-of-still-photography-learning-1024x597.jpg" alt="Curs fotografie">
+          <span class="label-on-image">Still Photography</span>
+        </div>
+        <div class="course-content">
+          <p class="subtitle">Photography Basics</p>
+          <h3>Mastering Still Photography</h3>
+          <div class="course-meta-icons">
+            <span><i class="fa-solid fa-clock" style="color: #fe8d4d;"></i> 4 weeks</span>
+            <span><i class="fa-solid fa-share-from-square" style="color: #fe8d4d;"></i> 150 enrolled</span>
+            <span><i class="fa-solid fa-signal" style="color: #fe8d4d;"></i> Beginner</span>
+            <span><i class="fa-solid fa-ticket" style="color: #fe8d4d;"></i> 15 Lessons</span>
+          </div>
+          <div class="course-footer">
+            <span class="price"><s>$50</s> <span class="free">Free</span></span>
+            <a href="#" class="view-more">View More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 3 -->
+      <div class="course-card">
+        <div class="image-container">
+          <img src="https://enviragallery.com/wp-content/uploads/2021/11/Online-Photography-Courses-Hone-Your-Creative-Skills.jpg" alt="Curs fotografie">
+          <span class="label-on-image">Creative Photography</span>
+        </div>
+        <div class="course-content">
+          <p class="subtitle">Explore your creativity</p>
+          <h3>Mastering Creative Photography</h3>
+          <div class="course-meta-icons">
+            <span><i class="fa-solid fa-clock" style="color: #fe8d4d;"></i> 5 weeks</span>
+            <span><i class="fa-solid fa-share-from-square" style="color: #fe8d4d;"></i> 100 enrolled</span>
+            <span><i class="fa-solid fa-signal" style="color: #fe8d4d;"></i> Advanced</span>
+            <span><i class="fa-solid fa-ticket" style="color: #fe8d4d;"></i> 20 Lessons</span>
+          </div>
+          <div class="course-footer">
+            <span class="price"><s>$60</s> <span class="free">Free</span></span>
+            <a href="#" class="view-more">View More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 4 (New Course) -->
+      <div class="course-card">
+        <div class="image-container">
+          <img src="https://www.varunpatelphotography.com/blog/wp-content/uploads/2023/05/9-1024x576.jpg" alt="Curs fotografie">
+          <span class="label-on-image">Photography & Photoshop</span>
+        </div>
+        <div class="course-content">
+          <p class="subtitle">Mastering Photography and Photoshop</p>
+          <h3>Advanced Photography & Photoshop Techniques</h3>
+          <div class="course-meta-icons">
+            <span><i class="fa-solid fa-clock" style="color: #fe8d4d;"></i> 7 weeks</span>
+            <span><i class="fa-solid fa-share-from-square" style="color: #fe8d4d;"></i> 200 enrolled</span>
+            <span><i class="fa-solid fa-signal" style="color: #fe8d4d;"></i> Expert</span>
+            <span><i class="fa-solid fa-ticket" style="color: #fe8d4d;"></i> 30 Lessons</span>
+          </div>
+          <div class="course-footer">
+            <span class="price"><s>$999.99</s> <span class="free">$143.23</span></span>
+            <a href="#" class="view-more">View More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Course Card 5 (New Course) -->
+      <div class="course-card">
+        <div class="image-container">
+          <img src="https://www.varunpatelphotography.com/blog/wp-content/uploads/2023/05/4-1024x576.jpg" alt="Curs fotografie">
+          <span class="label-on-image">Photography & Photoshop</span>
+        </div>
+        <div class="course-content">
+          <p class="subtitle">Mastering Photography and Photoshop</p>
+          <h3>Advanced Photography & Photoshop Techniques</h3>
+          <div class="course-meta-icons">
+            <span><i class="fa-solid fa-clock" style="color: #fe8d4d;"></i> 6 weeks</span>
+            <span><i class="fa-solid fa-share-from-square" style="color: #fe8d4d;"></i> 300 enrolled</span>
+            <span><i class="fa-solid fa-signal" style="color: #fe8d4d;"></i> Advanced</span>
+            <span><i class="fa-solid fa-ticket" style="color: #fe8d4d;"></i> 40 Lessons</span>
+          </div>
+          <div class="course-footer">
+            <span class="price"><s>$200</s> <span class="free">$143.23</span></span>
+            <a href="#" class="view-more">View More</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pagination buttons -->
+      <div class="pagination">
+        <button class="pagination-btn"><</button>
+        <button class="pagination-btn active">1</button>
+        <button class="pagination-btn">2</button>
+        <button class="pagination-btn">3</button>
+        <button class="pagination-btn">></button>
+      </div>
+    </div>
+
+    <!-- Sidebar with Filters -->
+    <div class="sidebar">
+      <div class="filters">
+        <h3>Filter By</h3>
+
+        <div class="filter-item">
+          <h4>Course Category</h4>
+          <ul>
+            <li><input type="checkbox" id="commercial" /> <label for="commercial">Commercial</label></li>
+            <li><input type="checkbox" id="office" /> <label for="office">Office</label></li>
+            <li><input type="checkbox" id="shop" /> <label for="shop">Shop</label></li>
+            <li><input type="checkbox" id="educative" /> <label for="educative">Educative</label></li>
+            <li><input type="checkbox" id="academy" /> <label for="academy">Academy</label></li>
+            <li><input type="checkbox" id="single_family_home" /> <label for="single_family_home">Single Family Home</label></li>
+            <li><input type="checkbox" id="studio" /> <label for="studio">Studio</label></li>
+            <li><input type="checkbox" id="university" /> <label for="university">University</label></li>
+          </ul>
+        </div>
+
+        <div class="filter-item">
+          <h4>Instructors</h4>
+          <ul>
+            <li><input type="checkbox" id="kenny_white" /> <label for="kenny_white">Kenny White</label></li>
+            <li><input type="checkbox" id="john_doe" /> <label for="john_doe">John Doe</label></li>
+          </ul>
+        </div>
+
+        <div class="filter-item">
+          <h4>Price</h4>
+          <ul>
+            <li><input type="radio" name="price" id="all_prices" /> <label for="all_prices">All</label></li>
+            <li><input type="radio" name="price" id="free" /> <label for="free">Free</label></li>
+            <li><input type="radio" name="price" id="paid" /> <label for="paid">Paid</label></li>
+          </ul>
+        </div>
+
+        <div class="filter-item">
+          <h4>Review</h4>
+          <ul>
+            <li><input type="radio" name="review" id="five_stars" /> <label for="five_stars">★★★★★</label></li>
+            <li><input type="radio" name="review" id="four_stars" /> <label for="four_stars">★★★★</label></li>
+            <li><input type="radio" name="review" id="three_stars" /> <label for="three_stars">★★★</label></li>
+            <li><input type="radio" name="review" id="two_stars" /> <label for="two_stars">★★</label></li>
+            <li><input type="radio" name="review" id="one_star" /> <label for="one_star">★</label></li>
+          </ul>
+        </div>
+
+        <div class="filter-item">
+          <h4>Level</h4>
+          <ul>
+            <li><input type="radio" name="level" id="all_levels" /> <label for="all_levels">All Levels</label></li>
+            <li><input type="radio" name="level" id="beginner" /> <label for="beginner">Beginner</label></li>
+            <li><input type="radio" name="level" id="intermediate" /> <label for="intermediate">Intermediate</label></li>
+            <li><input type="radio" name="level" id="expert" /> <label for="expert">Expert</label></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-left">
         <div class="logo">
-            <img src="https://img.icons8.com/?size=100&id=NsXSWjZzavpL&format=png&color=000000" alt="Logo" class="logo-icon">
-            <h1>eLearning CUTM</h1>
+          <i class="fa-solid fa-book-open" style="color: #fda140;"></i>
+          <span>eLearning CUTM</span>
         </div>
-        <nav>
-            <ul>
-                <!-- Link pentru Home care redirecționează în același tab către 'practica' -->
-                <li><a href="file:///C:/Users/user/Desktop/practica/index.html">Home</a></li>
-        
-                <!-- Link pentru Courses care este deja activ -->
-                <li><a href="#" class="active">Courses</a></li>
-        
-                <li><a href="#">Blog</a></li>
-                <li><a href="#">Premium Theme</a></li>
-                <li><a href="#">Login/Register</a></li>
-                <li><a href="#"><img src="https://img.icons8.com/?size=100&id=77253&format=png&color=000000" alt="Search Icon" class="search-icon"></a></li>
-            </ul>
-        </nav>         
-        </nav>
-    </header>
-
-    <!-- All Courses Section -->
-    <section class="all-courses">
-        <div class="container">
-            <div class="course-header">
-                <h2>All Courses</h2>
-                <div class="search-bar">
-                    <input type="text" placeholder="Search Courses">
-                    <button class="search-btn">Search</button>
-                </div>
-            </div>
-
-            <!-- Course Grid -->
-            <div class="course-grid">
-                <!-- Course Card 1 -->
-                <div class="course-card">
-                    <img src="https://s3.envato.com/files/409384063/Preview%20(2).__large_preview.jpg" alt="Course Image">
-                    <div class="course-info">
-                        <h3>Create An LMS Website With LearnPress</h3>
-                        <p><strong>by DesignedForPickles</strong></p>
-                        <p><strong>Duration:</strong> 2 Weeks</p>
-                        <p><strong>Students:</strong> 50 Students</p>
-                        <p><strong>Level:</strong> All Levels</p>
-                        <p><strong>Lessons:</strong> 30 Lessons</p>
-                        <p><strong>Price:</strong> $299</p>
-                        <button class="view-more-btn">View More</button>
-                    </div>
-                </div>
-
-                <!-- Course Card 2 -->
-                <div class="course-card">
-                    <img src="https://thimpress.com/wp-content/uploads/2017/05/WordPress-LMS-Plugin-%E2%80%93-LearnPress-690x460px-450x300.png" alt="Course Image">
-                    <div class="course-info">
-                        <h3>Create An LMS Website With LearnPress</h3>
-                        <p><strong>by DesignedForPickles</strong></p>
-                        <p><strong>Duration:</strong> 2 Weeks</p>
-                        <p><strong>Students:</strong> 50 Students</p>
-                        <p><strong>Level:</strong> All Levels</p>
-                        <p><strong>Lessons:</strong> 30 Lessons</p>
-                        <p><strong>Price:</strong> Free</p>
-                        <button class="view-more-btn">View More</button>
-                    </div>
-                </div>
-
-                <!-- Course Card 3 -->
-                <div class="course-card">
-                    <img src="https://fiverr-res.cloudinary.com/images/t_main1,q_auto,f_auto,q_auto,f_auto/gigs/316066332/original/e34eece91c67148f30245c395359089c58a7a738/design-lms-website-using-learndash-learnpress-tutor-lms.jpg" alt="Course Image">
-                    <div class="course-info">
-                        <h3>Create An LMS Website With LearnPress</h3>
-                        <p><strong>by DesignedForPickles</strong></p>
-                        <p><strong>Duration:</strong> 2 Weeks</p>
-                        <p><strong>Students:</strong> 50 Students</p>
-                        <p><strong>Level:</strong> All Levels</p>
-                        <p><strong>Lessons:</strong> 30 Lessons</p>
-                        <p><strong>Price:</strong> $249</p>
-                        <button class="view-more-btn">View More</button>
-                    </div>
-                </div>
-
-                <!-- Course Card 4 -->
-                <div class="course-card">
-                    <img src="https://satisfyhost.com/blog/wp-content/uploads/2025/03/LearnDash-vs-LifterLMS-vs-LearnPress.jpg" alt="Course Image">
-                    <div class="course-info">
-                        <h3>Create An LMS Website With LearnPress</h3>
-                        <p><strong>by DesignedForPickles</strong></p>
-                        <p><strong>Duration:</strong> 2 Weeks</p>
-                        <p><strong>Students:</strong> 50 Students</p>
-                        <p><strong>Level:</strong> Beginner</p>
-                        <p><strong>Lessons:</strong> 30 Lessons</p>
-                        <p><strong>Price:</strong> Free</p>
-                        <button class="view-more-btn">View More</button>
-                    </div>
-                </div>
-
-                <!-- Course Card 5 -->
-                <div class="course-card">
-                    <img src="https://www.godaddy.com/resources/wp-content/uploads/2022/09/LearnPress.png?size=3840x0" alt="Course Image">
-                    <div class="course-info">
-                        <h3>Create An LMS Website With LearnPress</h3>
-                        <p><strong>by DesignedForPickles</strong></p>
-                        <p><strong>Duration:</strong> 2 Weeks</p>
-                        <p><strong>Students:</strong> 50 Students</p>
-                        <p><strong>Level:</strong> Intermediate</p>
-                        <p><strong>Lessons:</strong> 30 Lessons</p>
-                        <p><strong>Price:</strong> $179</p>
-                        <button class="view-more-btn">View More</button>
-                    </div>
-                </div>
-
-                <!-- Course Card 6 -->
-                <div class="course-card">
-                    <img src="https://i.ytimg.com/vi/mwoIrhud84w/hq720.jpg?sqp=-oaymwEhCK4FEIIDSFryq4qpAxMIARUAAAAAGAElAADIQj0AgKJD&rs=AOn4CLCVFY26aloZX91x1ZIVuNCgfWyJSw" alt="Course Image">
-                    <div class="course-info">
-                        <h3>Create An LMS Website With LearnPress</h3>
-                        <p><strong>by DesignedForPickles</strong></p>
-                        <p><strong>Duration:</strong> 2 Weeks</p>
-                        <p><strong>Students:</strong> 50 Students</p>
-                        <p><strong>Level:</strong> Expert</p>
-                        <p><strong>Lessons:</strong> 30 Lessons</p>
-                        <p><strong>Price:</strong> $399</p>
-                        <button class="view-more-btn">View More</button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Pagination -->
-            <div class="pagination">
-                <button class="page-btn circle">1</button>
-                <button class="page-btn circle">2</button>
-                <button class="page-btn circle">3</button>
-            </div>
+        <p>
+          eLearning CUTM<br>
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+        </p>
+      </div>
+      <div class="footer-right">
+        <div class="footer-links">
+          <h3>GET HELP</h3>
+          <ul>
+            <li><a href="#">Contact Us</a></li>
+            <li><a href="#">Latest Articles</a></li>
+            <li><a href="#">FAQ</a></li>
+          </ul>
         </div>
-    </section>
-
-    <!-- Sidebar -->
-    <aside class="sidebar">
-        <h3>Filter Courses</h3>
-        <div class="filters">
-            <div class="filter-category">
-                <h4>Categories</h4>
-                <label><input type="checkbox"> Business (15)</label>
-                <label><input type="checkbox"> Design (15)</label>
-                <label><input type="checkbox"> IT (15)</label>
-            </div>
-            <div class="filter-rating">
-                <h4>Rating</h4>
-                <div class="rating">
-                    <input type="radio" id="5stars"><label for="5stars">⭐ 5 Stars</label>
-                    <input type="radio" id="4stars"><label for="4stars">⭐ 4 Stars</label>
-                </div>
-            </div>
-            <div class="filter-level">
-                <h4>Level</h4>
-                <label><input type="checkbox"> All Levels</label>
-                <label><input type="checkbox"> Beginner</label>
-                <label><input type="checkbox"> Intermediate</label>
-                <label><input type="checkbox"> Expert</label>
-            </div>
+        <div class="footer-programs">
+          <h3>PROGRAMS</h3>
+          <ul>
+            <li><a href="#">Art & Design</a></li>
+            <li><a href="#">Business</a></li>
+            <li><a href="#">IT & Software</a></li>
+            <li><a href="#">Languages</a></li>
+            <li><a href="#">Programming</a></li>
+          </ul>
         </div>
-    </aside>
-
-    <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <img src="https://img.icons8.com/?size=100&id=NsXSWjZzavpL&format=png&color=000000" alt="Footer Logo">
-                <p>eLearning CUTM</p>
-            </div>
-            <div class="footer-links">
-                <h4>GET HELP</h4>
-                <ul>
-                    <li>Contact Us</li>
-                    <li>Latest Articles</li>
-                    <li>FAQ</li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>PROGRAMS</h4>
-                <ul>
-                    <li>Art & Design</li>
-                    <li>IT & Software</li>
-                    <li>Languages</li>
-                </ul>
-            </div>
-            <div class="footer-links">
-                <h4>CONTACT US</h4>
-                <p>Address: 2201 New Design St, Lorem Ipsum10, Hudson Yards, USA</p>
-                <p>Tel: +123 2500-5678988</p>
-                <p>Email: support@elearning.com</p>
-                <div class="social-icons">
-                    <a href="#"><img src="https://img.icons8.com/?id=32323" alt="Facebook"></a>
-                    <a href="#"><img src="https://img.icons8.com/?id=cMRBi0rI3iwb" alt="Twitter"></a>
-                    <a href="#"><img src="https://img.icons8.com/?id=108776" alt="Instagram"></a>
-                </div>
-            </div>
+        <div class="footer-contact">
+          <h3>CONTACT US</h3>
+          <p>Address: 123, Strada Unirii, Chișinău, Republic of Moldova</p>
+          <p>Tel: +373 2500-567-8988</p>
+          <p>Email: supportims@gmail.com</p>
         </div>
-    </footer>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-social">
+        <a href="#" class="social-icon"><i class="fa-brands fa-facebook"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-pinterest"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
+        <a href="#" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
+      </div>
+    </div>
+  </footer>
 
-    <script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
